@@ -6,6 +6,11 @@ spack:
   specs:
   - cmake
 
+  packages:
+    all:
+      require:
+        - target=x86_64
+
   mirrors:
     gh-buildcache:
       url: oci://ghcr.io/viperml/spack-stack
