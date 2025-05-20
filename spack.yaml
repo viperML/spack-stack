@@ -5,11 +5,14 @@ spack:
 
   specs:
   - cmake
+  - py-torch
 
   packages:
     all:
       require:
         - target=x86_64
+        - +cuda
+        - cuda_arch=60
 
   mirrors:
     gh-buildcache:
