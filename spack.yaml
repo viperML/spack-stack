@@ -1,0 +1,12 @@
+spack:
+  view: true
+  concretizer:
+    unify: true
+
+  specs:
+  - cmake
+
+  mirrors:
+    gh-buildcache:
+      url: oci://ghcr.io/viperml/spack-stack
+      signed: false

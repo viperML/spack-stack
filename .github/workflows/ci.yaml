@@ -1,0 +1,28 @@
+name: ci
+
+on:
+  workflow_dispatch:
+  push:
+    # branches:
+    #   - dev
+
+jobs:
+  main:
+    runs-on: ubuntu:latest
+    permissions:
+      packages: write
+    container:
+      image: debian:11
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: spack/setup-spack@v2
+
+      - uses: viperML/spack-buildcache-action@main
+        with:
+          environment: .
+
+      - run: |
+          which -a cmake
