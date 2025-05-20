@@ -6,6 +6,9 @@ on:
     # branches:
     #   - dev
 
+concurrency:
+  group: ci
+
 jobs:
   main:
     runs-on: ubuntu-latest

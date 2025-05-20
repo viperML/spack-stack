@@ -5,7 +5,7 @@ spack:
 
   specs:
   - cmake
-  - py-torch
+  - py-torch -mkldnn
 
   packages:
     all:
