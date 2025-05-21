@@ -12,7 +12,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       packages: write
-    container: debian:11
+    container:
+      image: debian:11
+      volumes:
+        - /opt:/opt
+        - /tmp:/tmp
     steps:
       - name: Install deps
         run: |
