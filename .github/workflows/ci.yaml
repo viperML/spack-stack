@@ -3,8 +3,6 @@ name: ci
 on:
   workflow_dispatch:
   push:
-    # branches:
-    #   - dev
 
 concurrency:
   group: ci
@@ -47,6 +45,9 @@ jobs:
           submodules: true
 
       - uses: spack/setup-spack@v2
+        with:
+          # Locked
+          ref: 4316c4fb009
 
       - uses: viperML/spack-buildcache-action@develop
         with:
