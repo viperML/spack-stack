@@ -11,8 +11,9 @@ spack:
     all:
       require:
         - target=x86_64
-        - +cuda
-        - cuda_arch=60
+        - ~cuda
+        # - +cuda
+        # - cuda_arch=60
 
   mirrors:
     gh-buildcache:
