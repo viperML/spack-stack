@@ -48,9 +48,6 @@ jobs:
 
       - uses: spack/setup-spack@v2
 
-      - uses: viperML/spack-buildcache-action@main
+      - uses: viperML/spack-buildcache-action@develop
         with:
           environment: .
-
-      - run: |
-          which -a cmake
