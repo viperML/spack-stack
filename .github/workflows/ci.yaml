@@ -51,7 +51,8 @@ jobs:
       - uses: spack/setup-spack@v2
         with:
           # Locked
-          ref: 4316c4fb009fb6c24e25e7c8afcefee09a88bc21
+          # ref: 4316c4fb009fb6c24e25e7c8afcefee09a88bc21
+          ref: 84276915b9df365bb81b6186087ef1b66eedcc29
 
       - uses: viperML/spack-buildcache-action@develop
         with:

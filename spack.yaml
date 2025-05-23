@@ -4,16 +4,24 @@ spack:
     unify: true
 
   specs:
-  - gcc-runtime
-  - py-torch -mkldnn
+  - cmake
+  - hdf5
+  - libyaml
+  - openmpi
+  - python
+  - py-dask
+  # - py-ray
+  - py-distributed
+  - py-h5py
+  - py-graphviz
 
   packages:
     all:
       require:
         - target=x86_64
-        # - ~cuda
-        - +cuda
-        - cuda_arch=60
+        - ~cuda
+        # - +cuda
+        # - cuda_arch=60
 
   mirrors:
     gh-buildcache:
