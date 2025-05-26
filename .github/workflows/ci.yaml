@@ -79,7 +79,8 @@ jobs:
             python3-setuptools \
             svn \
             unzip \
-            zstd
+            zstd \
+            xz
 
       - uses: actions/checkout@v4
         name: Checkout
