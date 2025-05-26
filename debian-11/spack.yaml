@@ -23,7 +23,7 @@ spack:
         # - +cuda
         # - cuda_arch=60
 
-  # mirrors:
-  #   gh-buildcache:
-  #     url: oci://ghcr.io/viperml/spack-stack
-  #     signed: false
+  mirrors:
+    gh-buildcache:
+      url: oci://ghcr.io/viperml/spack-stack/debian-11
+      signed: false

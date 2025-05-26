@@ -16,12 +16,12 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: debian
-            version: 11
-          - os: almalinux
-            version: 8
+          - name: debian-11
+            image: debian:11
+          - name: rhel-8
+            image: redhat/ubi8
     container:
-      image: ${{ matrix.os }}:${{ matrix.version }}
+      image: ${{ matrix.image }}
       volumes:
         - /opt:/opt
         - /tmp:/tmp
@@ -54,8 +54,8 @@ jobs:
             zstd
           locale-gen en_US.UTF-8
 
-      - name: Install AlmaLinux dependencies
-        if: matrix.os == 'almalinux'
+      - name: Install RHEL dependencies
+        if: matrix.os == 'rhel-8'
         # Dependencies copied from:
         # https://github.com/spack/spack/blob/develop/share/spack/templates/container/almalinux_8.dockerfile
         run: |
@@ -70,7 +70,6 @@ jobs:
             gcc-gfortran \
             git \
             gnupg2 \
-            hg \
             hostname \
             iproute \
             make \
@@ -92,41 +91,41 @@ jobs:
 
       - uses: viperML/spack-buildcache-action@develop
         with:
-          environment: ./${{ matrix.os }}-${{ matrix.version }}
-          registry: oci://ghcr.io/viperml/spack-stack/${{ matrix.os }}-${{ matrix.version }}
+          environment: ./${{ matrix.name }}
+          registry: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
 
       - uses: actions/cache/save@v4
+        with:
+          path: ./${{ matrix.name }}/spack.lock
+          key: spack-lock-${{ matrix.name }}-${{ github.run_id }}
+
+  relock:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    needs: main
+    steps:
+      - uses: actions/checkout@v4
+        name: Checkout
+
+      - name: Pull spack.lock
+        uses: actions/cache/restore@v4
         with:
           path: spack.lock
           key: spack-lock-${{ github.run_id }}
 
-  # relock:
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: write
-  #   needs: main
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #       name: Checkout
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-  #     - name: Pull spack.lock
-  #       uses: actions/cache/restore@v4
-  #       with:
-  #         path: spack.lock
-  #         key: spack-lock-${{ github.run_id }}
-
-  #     - name: Set up Git
-  #       run: |
-  #         git config --global user.name "github-actions[bot]"
-  #         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-  #     - name: Commit and push spack.lock if changed
-  #       run: |
-  #         git add spack.lock
-  #         if ! git diff --cached --quiet; then
-  #           set -e
-  #           git commit -m "ci: update spack.lock"
-  #         fi
-  #         git push origin HEAD:${{ github.ref_name }}
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push spack.lock if changed
+        run: |
+          git add spack.lock
+          if ! git diff --cached --quiet; then
+            set -e
+            git commit -m "ci: update spack.lock"
+          fi
+          git push origin HEAD:${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
