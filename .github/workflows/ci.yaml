@@ -11,6 +11,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     permissions:
+      contents: read
       packages: write
     container:
       image: debian:11
@@ -18,11 +19,13 @@ jobs:
         - /opt:/opt
         - /tmp:/tmp
     steps:
-      - name: Install deps
+      - name: Install dependencies
+        # Dependencies copied from:
+        # https://github.com/spack/spack/blob/develop/share/spack/templates/container/ubuntu_2404.dockerfile
         run: |
-          apt-get -yqq update \
-            && apt-get -yqq upgrade \
-            && apt-get -yqq install --no-install-recommends \
+          apt-get -yqq update
+          apt-get -yqq upgrade
+          apt-get -yqq install --no-install-recommends \
             build-essential \
             ca-certificates \
             curl \
@@ -40,9 +43,8 @@ jobs:
             python3 \
             python3-boto3 \
             unzip \
-            zstd \
-            && locale-gen en_US.UTF-8 \
-            && rm -rf /var/lib/apt/lists/*
+            zstd
+          locale-gen en_US.UTF-8
 
       - uses: actions/checkout@v4
         with:
@@ -57,3 +59,32 @@ jobs:
       - uses: viperML/spack-buildcache-action@develop
         with:
           environment: .
+
+      - uses: actions/cache@v4
+        with:
+          path: spack.lock
+          key: spack-lock-${{ github.run_id }}
+
+  relock:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Pull spack.lock
+        uses: actions/cache@v4
+        with:
+          path: spack.lock
+          key: spack-lock-${{ github.run_id }}
+
+      - name: Set up Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Commit and push spack.lock if changed
+        run: |
+          git add spack.lock
+          if ! git diff --cached --quiet; set -e; git commit -m "ci: update spack.lock"; end
+          git push origin HEAD:${{ github.ref_name }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
