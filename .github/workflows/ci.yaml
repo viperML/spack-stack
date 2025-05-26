@@ -104,11 +104,6 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
-    strategy:
-      matrix:
-        include:
-          - name: debian-11
-          - name: rhel-8
     needs: main
     steps:
       - uses: actions/checkout@v4
@@ -117,8 +112,14 @@ jobs:
       - name: Pull spack.lock
         uses: actions/cache/restore@v4
         with:
-          path: ./${{ matrix.name }}/spack.lock
-          key: spack-lock-${{ matrix.name }}-${{ github.run_id }}
+          path: ./debian-11/spack.lock
+          key: spack-lock-debian-11-${{ github.run_id }}
+
+      - name: Pull spack.lock
+        uses: actions/cache/restore@v4
+        with:
+          path: ./rhel-8/spack.lock
+          key: spack-lock-rhel-8-${{ github.run_id }}
 
       - name: Set up Git
         run: |
