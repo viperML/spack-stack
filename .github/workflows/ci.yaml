@@ -60,9 +60,9 @@ jobs:
         with:
           environment: .
 
-      - uses: actions/cache@v4
+      - uses: actions/cache/save@v4
         with:
-          path: spack.lock
+          path: spack.yaml
           key: spack-lock-${{ github.run_id }}
 
   relock:
