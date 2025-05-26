@@ -74,7 +74,7 @@ jobs:
         name: Checkout
 
       - name: Pull spack.lock
-        uses: actions/cache@v4
+        uses: actions/cache/restore@v4
         with:
           path: spack.lock
           key: spack-lock-${{ github.run_id }}
@@ -87,7 +87,10 @@ jobs:
       - name: Commit and push spack.lock if changed
         run: |
           git add spack.lock
-          if ! git diff --cached --quiet; set -e; git commit -m "ci: update spack.lock"; end
+          if ! git diff --cached --quiet; then
+            set -e
+            git commit -m "ci: update spack.lock"
+          fi
           git push origin HEAD:${{ github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
