@@ -103,6 +103,11 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    strategy:
+      matrix:
+        include:
+          - name: debian-11
+          - name: rhel-8
     needs: main
     steps:
       - uses: actions/checkout@v4
@@ -111,8 +116,8 @@ jobs:
       - name: Pull spack.lock
         uses: actions/cache/restore@v4
         with:
-          path: spack.lock
-          key: spack-lock-${{ github.run_id }}
+          path: ./${{ matrix.name }}/spack.lock
+          key: spack-lock-${{ matrix.name }}-${{ github.run_id }}
 
       - name: Set up Git
         run: |
@@ -121,7 +126,7 @@ jobs:
 
       - name: Commit and push spack.lock if changed
         run: |
-          git add spack.lock
+          git add .
           if ! git diff --cached --quiet; then
             set -e
             git commit -m "ci: update spack.lock"
