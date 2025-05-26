@@ -69,6 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    needs: main
     steps:
       - name: Pull spack.lock
         uses: actions/cache@v4
