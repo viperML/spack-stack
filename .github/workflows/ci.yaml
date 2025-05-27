@@ -93,7 +93,7 @@ jobs:
       - uses: viperML/spack-buildcache-action@develop
         with:
           environment: ./${{ matrix.name }}
-          registry: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
+          mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
 
       - uses: actions/cache/save@v4
         with:
