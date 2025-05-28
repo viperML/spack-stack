@@ -20,6 +20,8 @@ jobs:
             image: debian:11
           - name: rhel-8
             image: redhat/ubi8
+          - name: rhel-9
+            image: redhat/ubi8
     container:
       image: ${{ matrix.image }}
       volumes:
