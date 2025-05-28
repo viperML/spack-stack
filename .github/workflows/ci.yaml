@@ -80,6 +80,7 @@ jobs:
             svn \
             unzip \
             zstd \
+            diffutils \
             xz
 
       - uses: actions/checkout@v4
