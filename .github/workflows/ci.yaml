@@ -19,7 +19,7 @@ jobs:
           - name: debian-11
             image: debian:11
           - name: rhel-8
-            image: redhat/ubi8
+            image: redhat/ubi8-micro
     container:
       image: ${{ matrix.image }}
       volumes:
@@ -91,17 +91,11 @@ jobs:
           ref: 84276915b9df365bb81b6186087ef1b66eedcc29
 
       - uses: viperML/spack-buildcache-action@develop
-        timeout-minutes: 8
+        timeout-minutes: 30
         with:
           environment: ./${{ matrix.name }}
           mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
-          log-name: log-${{ matrix.name }}
-
-      - uses: actions/upload-artifact@v4
-        name: Upload logs
-        with:
-          name: log2-${{ matrix.name }}
-          path: /tmp/spack-log.xml
+          log-name: spack-log-${{ matrix.name }}
 
       - uses: actions/cache/save@v4
         with:
