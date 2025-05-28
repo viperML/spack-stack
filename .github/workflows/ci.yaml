@@ -21,7 +21,7 @@ jobs:
           - name: rhel-8
             image: redhat/ubi8
           - name: rhel-9
-            image: redhat/ubi8
+            image: redhat/ubi9
     container:
       image: ${{ matrix.image }}
       volumes:
@@ -57,7 +57,7 @@ jobs:
           locale-gen en_US.UTF-8
 
       - name: Install RHEL dependencies
-        if: matrix.name == 'rhel-8'
+        if: matrix.name == 'rhel-8' || matrix.name == 'rhel-9'
         # Dependencies copied from:
         # https://github.com/spack/spack/blob/develop/share/spack/templates/container/almalinux_8.dockerfile
         run: |
