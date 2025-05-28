@@ -62,7 +62,7 @@ jobs:
         # https://github.com/spack/spack/blob/develop/share/spack/templates/container/almalinux_8.dockerfile
         run: |
           dnf update -y
-          dnf install -y \
+          dnf install -y --allowerasing \
             bzip2 \
             curl \
             file \
