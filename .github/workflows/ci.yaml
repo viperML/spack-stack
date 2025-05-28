@@ -10,7 +10,6 @@ concurrency:
 jobs:
   main:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
     permissions:
       contents: read
       packages: write
@@ -92,16 +91,16 @@ jobs:
           ref: 84276915b9df365bb81b6186087ef1b66eedcc29
 
       - uses: viperML/spack-buildcache-action@develop
-        timeout-minutes: 15
-        continue-on-error: true
+        timeout-minutes: 8
         with:
           environment: ./${{ matrix.name }}
           mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
+          log-name: log-${{ matrix.name }}
 
       - uses: actions/upload-artifact@v4
         name: Upload logs
         with:
-          name: spack-log
+          name: log2-${{ matrix.name }}
           path: /tmp/spack-log.xml
 
       - uses: actions/cache/save@v4
