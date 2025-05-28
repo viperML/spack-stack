@@ -92,7 +92,7 @@ jobs:
           ref: 84276915b9df365bb81b6186087ef1b66eedcc29
 
       - uses: viperML/spack-buildcache-action@develop
-        timeout-minutes: 30
+        # timeout-minutes: 30
         with:
           environment: ./${{ matrix.name }}
           mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
