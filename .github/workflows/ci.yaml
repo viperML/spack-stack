@@ -18,6 +18,8 @@ jobs:
         include:
           - name: debian-11
             image: debian:11
+          - name: debian-11-ai
+            image: debian:11
           - name: rhel-8
             image: redhat/ubi8
           - name: rhel-9
@@ -29,7 +31,7 @@ jobs:
         - /tmp:/tmp
     steps:
       - name: Install Debian dependencies
-        if: matrix.name == 'debian-11'
+        if: matrix.name == 'debian-11' || matrix.name == 'debian-11-ai'
         # Dependencies copied from:
         # https://github.com/spack/spack/blob/develop/share/spack/templates/container/ubuntu_2404.dockerfile
         run: |
