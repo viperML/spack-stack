@@ -4,6 +4,7 @@ spack:
   concretizer:
     unify: true
     duplicates:
+      strategy: full
       max_dupes:
         py-versioneer: 2
 
@@ -19,6 +20,8 @@ spack:
   - py-graphviz
   - py-pandas
   - tcl
+  - py-versioneer @0.28
+  - py-versioneer @0.29
   # - netcdf-c +parallel-netcdf
   # - py-bokeh
   # - py-ray

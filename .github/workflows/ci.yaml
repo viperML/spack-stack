@@ -88,10 +88,10 @@ jobs:
       - uses: actions/checkout@v4
         name: Checkout
 
-      - uses: spack/setup-spack@v2
+      - uses: viperML/setup-spack@custom-repo
         with:
-          # Locked
-          ref: 84276915b9df365bb81b6186087ef1b66eedcc29
+          repository: viperML/spack
+          ref: dask-fix
 
       - uses: viperML/spack-buildcache-action@develop
         # timeout-minutes: 30
