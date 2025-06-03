@@ -11,6 +11,10 @@
   },
   "roots": [
     {
+      "hash": "5akoq4jaqpjj46b5dyuj3yskpi4oyako",
+      "spec": "netcdf-c+parallel-netcdf"
+    },
+    {
       "hash": "ucrsuu6gnk7kkorbwl4b5iczrgcia6ic",
       "spec": "libyaml"
     },
@@ -56,9 +60,9 @@
     }
   ],
   "concrete_specs": {
-    "ucrsuu6gnk7kkorbwl4b5iczrgcia6ic": {
-      "name": "libyaml",
-      "version": "0.2.5",
+    "5akoq4jaqpjj46b5dyuj3yskpi4oyako": {
+      "name": "netcdf-c",
+      "version": "4.9.2",
       "arch": {
         "platform": "linux",
         "platform_os": "debian11",
@@ -66,7 +70,25 @@
       },
       "namespace": "builtin",
       "parameters": {
+        "blosc": true,
         "build_system": "autotools",
+        "byterange": false,
+        "dap": false,
+        "fsync": false,
+        "hdf4": false,
+        "jna": false,
+        "logging": false,
+        "mpi": true,
+        "nczarr_zip": false,
+        "optimize": true,
+        "parallel-netcdf": true,
+        "patches": [
+          "0161eb870fdfaf61be9d70132c9447a537320342366362e76b8460c823bf95ca"
+        ],
+        "pic": true,
+        "shared": true,
+        "szip": true,
+        "zstd": true,
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -74,11 +96,201 @@
         "ldflags": [],
         "ldlibs": []
       },
-      "package_hash": "uerjalcebiknyntippb2di6vu4hkis3fs7g46s6q5qob4k5y4esq====",
+      "patches": [
+        "0161eb870fdfaf61be9d70132c9447a537320342366362e76b8460c823bf95ca"
+      ],
+      "package_hash": "fv5srocyqzunzirxzrfeyls43ivn5nwlhvoe52wsf6ahosuuvhoa====",
+      "dependencies": [
+        {
+          "name": "bzip2",
+          "hash": "jalljm45qeu2lwgseauuguteprj5ib3o",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "c-blosc",
+          "hash": "gpzhd3xkrzq72uyrvt7mxc2k7tnz5r2c",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "hdf5",
+          "hash": "64ku6hp6qadqgjd4alv33ujia4njqlzl",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "libaec",
+          "hash": "tpyqnyxqbf2fyewpirfllngbyweij4u4",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "szip"
+            ]
+          }
+        },
+        {
+          "name": "openmpi",
+          "hash": "kjwhffe2vbta6f2qore7op4qwqqcqoun",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "mpi"
+            ]
+          }
+        },
+        {
+          "name": "parallel-netcdf",
+          "hash": "q6wuazpgforc36nbl4sqmksojxctxyjb",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "zlib-ng",
+          "hash": "v7s2utb7iejatv5d6aiihv52niyi4yfy",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "zlib-api"
+            ]
+          }
+        },
+        {
+          "name": "zstd",
+          "hash": "jy3hcqwgfqf3f5nudqzkpzr53iln3wzb",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "5akoq4jaqpjj46b5dyuj3yskpi4oyako"
+    },
+    "jalljm45qeu2lwgseauuguteprj5ib3o": {
+      "name": "bzip2",
+      "version": "1.0.8",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "generic",
+        "debug": false,
+        "pic": false,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "23pafj3kmpyregjxpmso3hf2q5op467msdhghyksoj2sv75ixqga====",
       "dependencies": [
         {
           "name": "compiler-wrapper",
           "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "diffutils",
+          "hash": "vtuufwcpfpmukyef7mqj6hvjza6vlw77",
           "parameters": {
             "deptypes": [
               "build"
@@ -134,7 +346,7 @@
       "annotations": {
         "original_specfile_version": 5
       },
-      "hash": "ucrsuu6gnk7kkorbwl4b5iczrgcia6ic"
+      "hash": "jalljm45qeu2lwgseauuguteprj5ib3o"
     },
     "zzxf74n6ounivn6vj7fghkhmvjhipto2": {
       "name": "compiler-wrapper",
@@ -159,6 +371,99 @@
         "original_specfile_version": 5
       },
       "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2"
+    },
+    "vtuufwcpfpmukyef7mqj6hvjza6vlw77": {
+      "name": "diffutils",
+      "version": "3.10",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "autotools",
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "kf4cloz7zpbeu3sozbbx4xikot25nctbgri6mvwgq23snw55nhoq====",
+      "dependencies": [
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "libiconv",
+          "hash": "3ufi5w6hi2t356uimxrw4lwv427eczsp",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "iconv"
+            ]
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "vtuufwcpfpmukyef7mqj6hvjza6vlw77"
     },
     "mhzv5fhcc5gl524tpiu2jkzs2shipojf": {
       "name": "gcc",
@@ -370,9 +675,9 @@
       },
       "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4"
     },
-    "64ku6hp6qadqgjd4alv33ujia4njqlzl": {
-      "name": "hdf5",
-      "version": "1.14.6",
+    "3ufi5w6hi2t356uimxrw4lwv427eczsp": {
+      "name": "libiconv",
+      "version": "1.18",
       "arch": {
         "platform": "linux",
         "platform_os": "debian11",
@@ -380,22 +685,11 @@
       },
       "namespace": "builtin",
       "parameters": {
-        "api": "default",
-        "build_system": "cmake",
-        "build_type": "Release",
-        "cxx": false,
-        "fortran": false,
-        "generator": "make",
-        "hl": true,
-        "ipo": false,
-        "java": false,
-        "map": false,
-        "mpi": true,
-        "shared": true,
-        "subfiling": false,
-        "szip": false,
-        "threadsafe": false,
-        "tools": true,
+        "build_system": "autotools",
+        "libs": [
+          "shared",
+          "static"
+        ],
         "cflags": [],
         "cppflags": [],
         "cxxflags": [],
@@ -403,18 +697,8 @@
         "ldflags": [],
         "ldlibs": []
       },
-      "package_hash": "emi3mc5dsmvugspwx7gdy5agk6drm3qnedzut4azlrpa3pbayiuq====",
+      "package_hash": "57qcdp5r3pkdlzpwspvufc6ojs26lglepl3zchdj4qaq6s4izg3a====",
       "dependencies": [
-        {
-          "name": "cmake",
-          "hash": "avipbprvsrnub75geu6tasatnfwlgyiy",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
         {
           "name": "compiler-wrapper",
           "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
@@ -468,30 +752,122 @@
             ],
             "virtuals": []
           }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "3ufi5w6hi2t356uimxrw4lwv427eczsp"
+    },
+    "gpzhd3xkrzq72uyrvt7mxc2k7tnz5r2c": {
+      "name": "c-blosc",
+      "version": "1.21.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "avx2": true,
+        "build_system": "cmake",
+        "build_type": "Release",
+        "generator": "make",
+        "ipo": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "3u6wkkei43nr64wgogfldyste2tnw2pgx6gibzttuxlmiwzig5mq====",
+      "dependencies": [
+        {
+          "name": "cmake",
+          "hash": "avipbprvsrnub75geu6tasatnfwlgyiy",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
         },
         {
-          "name": "openmpi",
-          "hash": "kjwhffe2vbta6f2qore7op4qwqqcqoun",
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c",
+              "cxx"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "lz4",
+          "hash": "twcalmnme3s7tu3kthnkvj24ymhmbrmd",
           "parameters": {
             "deptypes": [
               "build",
               "link"
             ],
-            "virtuals": [
-              "mpi"
-            ]
+            "virtuals": []
           }
         },
         {
-          "name": "pkgconf",
-          "hash": "sck2x5yjrrjsrc6unvhu3buarkxxutfx",
+          "name": "snappy",
+          "hash": "nu6hf5ld575hkmb4a3myq6cpsvf3aiuo",
           "parameters": {
             "deptypes": [
-              "run"
+              "build",
+              "link"
             ],
-            "virtuals": [
-              "pkgconfig"
-            ]
+            "virtuals": []
           }
         },
         {
@@ -506,12 +882,23 @@
               "zlib-api"
             ]
           }
+        },
+        {
+          "name": "zstd",
+          "hash": "jy3hcqwgfqf3f5nudqzkpzr53iln3wzb",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": []
+          }
         }
       ],
       "annotations": {
         "original_specfile_version": 5
       },
-      "hash": "64ku6hp6qadqgjd4alv33ujia4njqlzl"
+      "hash": "gpzhd3xkrzq72uyrvt7mxc2k7tnz5r2c"
     },
     "avipbprvsrnub75geu6tasatnfwlgyiy": {
       "name": "cmake",
@@ -879,183 +1266,6 @@
         "original_specfile_version": 5
       },
       "hash": "t7h3qw2h4atkpxkvb2a5zbh2mgyo4csb"
-    },
-    "vtuufwcpfpmukyef7mqj6hvjza6vlw77": {
-      "name": "diffutils",
-      "version": "3.10",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "debian11",
-        "target": "x86_64"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "autotools",
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "package_hash": "kf4cloz7zpbeu3sozbbx4xikot25nctbgri6mvwgq23snw55nhoq====",
-      "dependencies": [
-        {
-          "name": "compiler-wrapper",
-          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "gcc",
-          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": [
-              "c"
-            ]
-          }
-        },
-        {
-          "name": "gcc-runtime",
-          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "glibc",
-          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": [
-              "libc"
-            ]
-          }
-        },
-        {
-          "name": "gmake",
-          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "libiconv",
-          "hash": "3ufi5w6hi2t356uimxrw4lwv427eczsp",
-          "parameters": {
-            "deptypes": [
-              "build",
-              "link"
-            ],
-            "virtuals": [
-              "iconv"
-            ]
-          }
-        }
-      ],
-      "annotations": {
-        "original_specfile_version": 5
-      },
-      "hash": "vtuufwcpfpmukyef7mqj6hvjza6vlw77"
-    },
-    "3ufi5w6hi2t356uimxrw4lwv427eczsp": {
-      "name": "libiconv",
-      "version": "1.18",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "debian11",
-        "target": "x86_64"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "autotools",
-        "libs": [
-          "shared",
-          "static"
-        ],
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "package_hash": "57qcdp5r3pkdlzpwspvufc6ojs26lglepl3zchdj4qaq6s4izg3a====",
-      "dependencies": [
-        {
-          "name": "compiler-wrapper",
-          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "gcc",
-          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": [
-              "c"
-            ]
-          }
-        },
-        {
-          "name": "gcc-runtime",
-          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "glibc",
-          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": [
-              "libc"
-            ]
-          }
-        },
-        {
-          "name": "gmake",
-          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        }
-      ],
-      "annotations": {
-        "original_specfile_version": 5
-      },
-      "hash": "3ufi5w6hi2t356uimxrw4lwv427eczsp"
     },
     "sck2x5yjrrjsrc6unvhu3buarkxxutfx": {
       "name": "pkgconf",
@@ -1501,99 +1711,6 @@
       },
       "hash": "rdl35dbifmrec22waaadsa3v54wot76y"
     },
-    "jalljm45qeu2lwgseauuguteprj5ib3o": {
-      "name": "bzip2",
-      "version": "1.0.8",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "debian11",
-        "target": "x86_64"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "generic",
-        "debug": false,
-        "pic": false,
-        "shared": true,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "package_hash": "23pafj3kmpyregjxpmso3hf2q5op467msdhghyksoj2sv75ixqga====",
-      "dependencies": [
-        {
-          "name": "compiler-wrapper",
-          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "diffutils",
-          "hash": "vtuufwcpfpmukyef7mqj6hvjza6vlw77",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "gcc",
-          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": [
-              "c"
-            ]
-          }
-        },
-        {
-          "name": "gcc-runtime",
-          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "glibc",
-          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": [
-              "libc"
-            ]
-          }
-        },
-        {
-          "name": "gmake",
-          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        }
-      ],
-      "annotations": {
-        "original_specfile_version": 5
-      },
-      "hash": "jalljm45qeu2lwgseauuguteprj5ib3o"
-    },
     "jfir3ogvtxi46fa5cigufn67jvxdxbcz": {
       "name": "gdbm",
       "version": "1.23",
@@ -1993,6 +2110,420 @@
         "original_specfile_version": 5
       },
       "hash": "v7s2utb7iejatv5d6aiihv52niyi4yfy"
+    },
+    "twcalmnme3s7tu3kthnkvj24ymhmbrmd": {
+      "name": "lz4",
+      "version": "1.10.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "makefile",
+        "libs": [
+          "shared",
+          "static"
+        ],
+        "pic": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "axhuz4g5emcxnsxh56y6txmzkon2avacebgzayeywcuebilfuqcq====",
+      "dependencies": [
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c",
+              "cxx"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "twcalmnme3s7tu3kthnkvj24ymhmbrmd"
+    },
+    "nu6hf5ld575hkmb4a3myq6cpsvf3aiuo": {
+      "name": "snappy",
+      "version": "1.2.1",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "cmake",
+        "build_type": "Release",
+        "generator": "make",
+        "ipo": false,
+        "pic": true,
+        "shared": false,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "wxcrihwg5yjoe76coyw3zcir2jdcksn54fihj36qlywqgwdumzfq====",
+      "dependencies": [
+        {
+          "name": "cmake",
+          "hash": "avipbprvsrnub75geu6tasatnfwlgyiy",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c",
+              "cxx"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "nu6hf5ld575hkmb4a3myq6cpsvf3aiuo"
+    },
+    "jy3hcqwgfqf3f5nudqzkpzr53iln3wzb": {
+      "name": "zstd",
+      "version": "1.5.7",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "makefile",
+        "compression": [
+          "none"
+        ],
+        "libs": [
+          "shared",
+          "static"
+        ],
+        "programs": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "wboc256qmgsrykonxftejdfurvumzlypglynd5a4gyqedm2fyhvq====",
+      "dependencies": [
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c",
+              "cxx"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "jy3hcqwgfqf3f5nudqzkpzr53iln3wzb"
+    },
+    "64ku6hp6qadqgjd4alv33ujia4njqlzl": {
+      "name": "hdf5",
+      "version": "1.14.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "api": "default",
+        "build_system": "cmake",
+        "build_type": "Release",
+        "cxx": false,
+        "fortran": false,
+        "generator": "make",
+        "hl": true,
+        "ipo": false,
+        "java": false,
+        "map": false,
+        "mpi": true,
+        "shared": true,
+        "subfiling": false,
+        "szip": false,
+        "threadsafe": false,
+        "tools": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "emi3mc5dsmvugspwx7gdy5agk6drm3qnedzut4azlrpa3pbayiuq====",
+      "dependencies": [
+        {
+          "name": "cmake",
+          "hash": "avipbprvsrnub75geu6tasatnfwlgyiy",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "openmpi",
+          "hash": "kjwhffe2vbta6f2qore7op4qwqqcqoun",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "mpi"
+            ]
+          }
+        },
+        {
+          "name": "pkgconf",
+          "hash": "sck2x5yjrrjsrc6unvhu3buarkxxutfx",
+          "parameters": {
+            "deptypes": [
+              "run"
+            ],
+            "virtuals": [
+              "pkgconfig"
+            ]
+          }
+        },
+        {
+          "name": "zlib-ng",
+          "hash": "v7s2utb7iejatv5d6aiihv52niyi4yfy",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "zlib-api"
+            ]
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "64ku6hp6qadqgjd4alv33ujia4njqlzl"
     },
     "kjwhffe2vbta6f2qore7op4qwqqcqoun": {
       "name": "openmpi",
@@ -3750,95 +4281,6 @@
       },
       "hash": "pbu33a2rcbosztasrdor5ucennshlrn3"
     },
-    "jy3hcqwgfqf3f5nudqzkpzr53iln3wzb": {
-      "name": "zstd",
-      "version": "1.5.7",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "debian11",
-        "target": "x86_64"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "makefile",
-        "compression": [
-          "none"
-        ],
-        "libs": [
-          "shared",
-          "static"
-        ],
-        "programs": true,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "package_hash": "wboc256qmgsrykonxftejdfurvumzlypglynd5a4gyqedm2fyhvq====",
-      "dependencies": [
-        {
-          "name": "compiler-wrapper",
-          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "gcc",
-          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": [
-              "c",
-              "cxx"
-            ]
-          }
-        },
-        {
-          "name": "gcc-runtime",
-          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "glibc",
-          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": [
-              "libc"
-            ]
-          }
-        },
-        {
-          "name": "gmake",
-          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        }
-      ],
-      "annotations": {
-        "original_specfile_version": 5
-      },
-      "hash": "jy3hcqwgfqf3f5nudqzkpzr53iln3wzb"
-    },
     "u3cw4elqn65pfy3b3lletadaxh6bwnfx": {
       "name": "numactl",
       "version": "2.0.18",
@@ -4700,6 +5142,305 @@
         "original_specfile_version": 5
       },
       "hash": "wx2kvz2xyypeop23eswxanjv4f27p4ta"
+    },
+    "tpyqnyxqbf2fyewpirfllngbyweij4u4": {
+      "name": "libaec",
+      "version": "1.0.6",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "cmake",
+        "build_type": "Release",
+        "generator": "make",
+        "ipo": false,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "im2br6fa2ackufhayq3ssdgdqmva7y737ohddvytjjfdte72bjcq====",
+      "dependencies": [
+        {
+          "name": "cmake",
+          "hash": "avipbprvsrnub75geu6tasatnfwlgyiy",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c",
+              "cxx"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "tpyqnyxqbf2fyewpirfllngbyweij4u4"
+    },
+    "q6wuazpgforc36nbl4sqmksojxctxyjb": {
+      "name": "parallel-netcdf",
+      "version": "1.14.0",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "autotools",
+        "burstbuffer": false,
+        "cxx": true,
+        "examples": false,
+        "fortran": true,
+        "pic": true,
+        "shared": true,
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "4h3xlqxhauc44fjfvljuau2sfzd4zpvizcjlvfusnxhkhzmgasfq====",
+      "dependencies": [
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c",
+              "cxx",
+              "fortran"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "fortran-rt",
+              "libgfortran"
+            ]
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "m4",
+          "hash": "c6o4v4mxpkmdgypnwhih6a46nfrrtmsu",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "openmpi",
+          "hash": "kjwhffe2vbta6f2qore7op4qwqqcqoun",
+          "parameters": {
+            "deptypes": [
+              "build",
+              "link"
+            ],
+            "virtuals": [
+              "mpi"
+            ]
+          }
+        },
+        {
+          "name": "perl",
+          "hash": "al6a4c2n7f22z7wrghfbw3var7t247gd",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "q6wuazpgforc36nbl4sqmksojxctxyjb"
+    },
+    "ucrsuu6gnk7kkorbwl4b5iczrgcia6ic": {
+      "name": "libyaml",
+      "version": "0.2.5",
+      "arch": {
+        "platform": "linux",
+        "platform_os": "debian11",
+        "target": "x86_64"
+      },
+      "namespace": "builtin",
+      "parameters": {
+        "build_system": "autotools",
+        "cflags": [],
+        "cppflags": [],
+        "cxxflags": [],
+        "fflags": [],
+        "ldflags": [],
+        "ldlibs": []
+      },
+      "package_hash": "uerjalcebiknyntippb2di6vu4hkis3fs7g46s6q5qob4k5y4esq====",
+      "dependencies": [
+        {
+          "name": "compiler-wrapper",
+          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "gcc",
+          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": [
+              "c"
+            ]
+          }
+        },
+        {
+          "name": "gcc-runtime",
+          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": []
+          }
+        },
+        {
+          "name": "glibc",
+          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
+          "parameters": {
+            "deptypes": [
+              "link"
+            ],
+            "virtuals": [
+              "libc"
+            ]
+          }
+        },
+        {
+          "name": "gmake",
+          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
+          "parameters": {
+            "deptypes": [
+              "build"
+            ],
+            "virtuals": []
+          }
+        }
+      ],
+      "annotations": {
+        "original_specfile_version": 5
+      },
+      "hash": "ucrsuu6gnk7kkorbwl4b5iczrgcia6ic"
     },
     "4retd4c6o3ndnvnpqvgfka7dfun7a2wo": {
       "name": "py-h5py",
@@ -11795,102 +12536,6 @@
         "original_specfile_version": 5
       },
       "hash": "chustxzhs5snlregb74i3iulrgtnfwhf"
-    },
-    "nu6hf5ld575hkmb4a3myq6cpsvf3aiuo": {
-      "name": "snappy",
-      "version": "1.2.1",
-      "arch": {
-        "platform": "linux",
-        "platform_os": "debian11",
-        "target": "x86_64"
-      },
-      "namespace": "builtin",
-      "parameters": {
-        "build_system": "cmake",
-        "build_type": "Release",
-        "generator": "make",
-        "ipo": false,
-        "pic": true,
-        "shared": false,
-        "cflags": [],
-        "cppflags": [],
-        "cxxflags": [],
-        "fflags": [],
-        "ldflags": [],
-        "ldlibs": []
-      },
-      "package_hash": "wxcrihwg5yjoe76coyw3zcir2jdcksn54fihj36qlywqgwdumzfq====",
-      "dependencies": [
-        {
-          "name": "cmake",
-          "hash": "avipbprvsrnub75geu6tasatnfwlgyiy",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "compiler-wrapper",
-          "hash": "zzxf74n6ounivn6vj7fghkhmvjhipto2",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "gcc",
-          "hash": "mhzv5fhcc5gl524tpiu2jkzs2shipojf",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": [
-              "c",
-              "cxx"
-            ]
-          }
-        },
-        {
-          "name": "gcc-runtime",
-          "hash": "l3cethpt55uw6xygep6rstaiyygaptv2",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": []
-          }
-        },
-        {
-          "name": "glibc",
-          "hash": "4bl6pmqfkbxdxdq5gcouewf5h4ah36uw",
-          "parameters": {
-            "deptypes": [
-              "link"
-            ],
-            "virtuals": [
-              "libc"
-            ]
-          }
-        },
-        {
-          "name": "gmake",
-          "hash": "4p4ycefxuk2pcbn7oisktjup2ahet2n4",
-          "parameters": {
-            "deptypes": [
-              "build"
-            ],
-            "virtuals": []
-          }
-        }
-      ],
-      "annotations": {
-        "original_specfile_version": 5
-      },
-      "hash": "nu6hf5ld575hkmb4a3myq6cpsvf3aiuo"
     },
     "gbxg76sfytr7lua5mkhhoz2mffmomvgq": {
       "name": "utf8proc",
