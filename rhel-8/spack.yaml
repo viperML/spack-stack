@@ -3,10 +3,6 @@ spack:
 
   concretizer:
     unify: true
-    # duplicates:
-    #   strategy: full
-    #   max_dupes:
-    #     py-versioneer: 2
 
   specs:
   - cmake

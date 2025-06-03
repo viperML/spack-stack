@@ -1,5 +1,6 @@
 spack:
   view: true
+
   concretizer:
     unify: true
 
@@ -9,12 +10,18 @@ spack:
   - libyaml
   - openmpi
   - python
-  - py-dask
-  # - py-ray
-  - py-distributed
+  - py-dask @2024.7.1 +distributed
+  - py-distributed @2024.7.1
   - py-h5py
   - py-graphviz
   - py-pandas
+  - tcl
+  # - py-versioneer @0.28
+  # - py-versioneer @0.29
+  # - netcdf-c +parallel-netcdf
+  # - py-bokeh
+  # - py-ray
+  # - protobuf @3.20
 
   packages:
     all:
