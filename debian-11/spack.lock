@@ -7,7 +7,7 @@
   "spack": {
     "version": "1.0.0.dev0",
     "type": "git",
-    "commit": "8f05d32df7db9898e2e9a199f6ab780fe93a6773"
+    "commit": "6b86f6cf91bf39914e225b2200dc0896919701ac"
   },
   "roots": [
     {
