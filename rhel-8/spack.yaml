@@ -1,7 +1,11 @@
 spack:
   view: true
+
   concretizer:
     unify: true
+    duplicates:
+      max_dupes:
+        py-versioneer: 2
 
   specs:
   - cmake
@@ -10,6 +14,7 @@ spack:
   - openmpi
   - python
   - py-dask @2024.7.1 +distributed
+  - py-distributed @2024.7.1
   - py-h5py
   - py-graphviz
   - py-pandas
