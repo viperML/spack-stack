@@ -8,9 +8,9 @@ built in GitHub Actions.
 
 1. Clone/Checkout Spack at the locked commit:
     ```
-    $ git clone --filter=blob:none -c feature.manyFiles=true https://github.com/spack/spack
-    $ pushd spack
-    $ git checkout 84276915b9df365bb81b6186087ef1b66eedcc29
+    $ git clone https://github.com/viperML/spack
+    $ pusd spack
+    $ git switch dask-fix
     $ source share/spack/setup-env.sh
     $ popd
     ```
