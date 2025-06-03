@@ -19,7 +19,7 @@ spack:
   # - py-versioneer @0.28
   # - py-versioneer @0.29
   - netcdf-c +parallel-netcdf
-  - py-bokeh
+  # - py-bokeh
   # - py-ray
   # - protobuf @3.20
 
