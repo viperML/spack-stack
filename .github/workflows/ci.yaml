@@ -115,6 +115,14 @@ jobs:
     permissions:
       contents: write
     needs: main
+    strategy:
+      max-parallel: 1
+      matrix:
+        env:
+        - debian-11
+        - debian-11-ai
+        - rhel-8
+        - rhel-9
     steps:
       - uses: actions/checkout@v4
         name: Checkout
@@ -122,26 +130,8 @@ jobs:
       - name: Pull spack.lock
         uses: actions/cache/restore@v4
         with:
-          path: ./debian-11/spack.lock
-          key: spack-lock-debian-11-${{ github.run_id }}
-
-      - name: Pull spack.lock
-        uses: actions/cache/restore@v4
-        with:
-          path: ./debian-11-ai/spack.lock
-          key: spack-lock-debian-11-ai-${{ github.run_id }}
-
-      - name: Pull spack.lock
-        uses: actions/cache/restore@v4
-        with:
-          path: ./rhel-8/spack.lock
-          key: spack-lock-rhel-8-${{ github.run_id }}
-
-      - name: Pull spack.lock
-        uses: actions/cache/restore@v4
-        with:
-          path: ./rhel-9/spack.lock
-          key: spack-lock-rhel-9-${{ github.run_id }}
+          path: ./${{ matrix.env }}/spack.lock
+          key: spack-lock-${{ matrix.env }}-${{ github.run_id }}
 
       - name: Set up Git
         run: |
