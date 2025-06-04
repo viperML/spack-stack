@@ -102,7 +102,7 @@ jobs:
           repository: viperML/spack
           ref: dask-fix
 
-      - uses: viperML/spack-buildcache-action@main
+      - uses: viperML/spack-buildcache-action@develop
         with:
           environment: ./${{ matrix.env }}
           mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.os }}
