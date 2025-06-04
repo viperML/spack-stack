@@ -95,8 +95,7 @@ jobs:
           repository: viperML/spack
           ref: dask-fix
 
-      - uses: viperML/spack-buildcache-action@develop
-        # timeout-minutes: 30
+      - uses: viperML/spack-buildcache-action@main
         with:
           environment: ./${{ matrix.name }}
           mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
