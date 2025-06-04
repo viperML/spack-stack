@@ -1,0 +1,25 @@
+spack:
+  view: true
+
+  concretizer:
+    unify: true
+
+  specs:
+  - py-torch
+  - py-torchvision
+  - py-torchaudio
+  - py-huggingface-hub
+  - py-transformers
+
+  packages:
+    all:
+      require:
+        - target=x86_64
+        - ~cuda
+        # - +cuda
+        # - cuda_arch=60
+
+  mirrors:
+    gh-buildcache:
+      url: oci://ghcr.io/viperml/spack-stack/rhel-9
+      signed: false

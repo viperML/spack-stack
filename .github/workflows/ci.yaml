@@ -27,7 +27,10 @@ jobs:
             os: rhel-8
           - env: rhel-9
             image: redhat/ubi9
-            os: rhel-8
+            os: rhel-9
+          - env: rhel-9-ai
+            image: redhat/ubi9
+            os: rhel-9
     container:
       image: ${{ matrix.image }}
       volumes:
@@ -123,6 +126,7 @@ jobs:
         - debian-11-ai
         - rhel-8
         - rhel-9
+        - rhel-9-ai
     steps:
       - uses: actions/checkout@v4
         name: Checkout
