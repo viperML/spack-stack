@@ -16,14 +16,18 @@ jobs:
     strategy:
       matrix:
         include:
-          - name: debian-11
+          - env: debian-11
             image: debian:11
-          - name: debian-11-ai
+            os: debian-11
+          - env: debian-11-ai
             image: debian:11
-          - name: rhel-8
+            os: debian-11
+          - env: rhel-8
             image: redhat/ubi8
-          - name: rhel-9
+            os: rhel-8
+          - env: rhel-9
             image: redhat/ubi9
+            os: rhel-8
     container:
       image: ${{ matrix.image }}
       volumes:
@@ -31,7 +35,7 @@ jobs:
         - /tmp:/tmp
     steps:
       - name: Install Debian dependencies
-        if: matrix.name == 'debian-11' || matrix.name == 'debian-11-ai'
+        if: matrix.os == 'debian-11'
         # Dependencies copied from:
         # https://github.com/spack/spack/blob/develop/share/spack/templates/container/ubuntu_2404.dockerfile
         run: |
@@ -59,7 +63,7 @@ jobs:
           locale-gen en_US.UTF-8
 
       - name: Install RHEL dependencies
-        if: matrix.name == 'rhel-8' || matrix.name == 'rhel-9'
+        if: matrix.os == 'rhel-8' || matrix.os == 'rhel-9'
         # Dependencies copied from:
         # https://github.com/spack/spack/blob/develop/share/spack/templates/container/almalinux_8.dockerfile
         run: |
@@ -97,14 +101,14 @@ jobs:
 
       - uses: viperML/spack-buildcache-action@main
         with:
-          environment: ./${{ matrix.name }}
-          mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.name }}
-          log-name: spack-log-${{ matrix.name }}
+          environment: ./${{ matrix.env }}
+          mirror: oci://ghcr.io/viperml/spack-stack/${{ matrix.os }}
+          log-name: spack-log-${{ matrix.env }}
 
       - uses: actions/cache/save@v4
         with:
-          path: ./${{ matrix.name }}/spack.lock
-          key: spack-lock-${{ matrix.name }}-${{ github.run_id }}
+          path: ./${{ matrix.env }}/spack.lock
+          key: spack-lock-${{ matrix.env }}-${{ github.run_id }}
 
   relock:
     runs-on: ubuntu-latest
@@ -124,8 +128,20 @@ jobs:
       - name: Pull spack.lock
         uses: actions/cache/restore@v4
         with:
+          path: ./debian-11-ai/spack.lock
+          key: spack-lock-debian-11-ai-${{ github.run_id }}
+
+      - name: Pull spack.lock
+        uses: actions/cache/restore@v4
+        with:
           path: ./rhel-8/spack.lock
           key: spack-lock-rhel-8-${{ github.run_id }}
+
+      - name: Pull spack.lock
+        uses: actions/cache/restore@v4
+        with:
+          path: ./rhel-9/spack.lock
+          key: spack-lock-rhel-9-${{ github.run_id }}
 
       - name: Set up Git
         run: |

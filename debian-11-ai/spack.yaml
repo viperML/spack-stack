@@ -21,5 +21,5 @@ spack:
 
   mirrors:
     gh-buildcache:
-      url: oci://ghcr.io/viperml/spack-stack/debian-11-ai
+      url: oci://ghcr.io/viperml/spack-stack/debian-11
       signed: false
