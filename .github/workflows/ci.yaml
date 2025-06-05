@@ -94,11 +94,6 @@ jobs:
             diffutils \
             xz
 
-      - name: Check mounts
-        run: |
-          findmnt -D --tree
-          exit 1
-
       - uses: actions/checkout@v4
         name: Checkout
 
